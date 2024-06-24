@@ -1,13 +1,16 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import N5Test1 from './N5Test1';
+import Test1 from './N5/Test1';
 
-const Jlpt_category = () => {
+
+const { TabPane } = Tabs;
+
+const JlptCategory = () => {
   const items = [
     {
       key: '1',
       tab: <b>N5</b>,
-      content: <N5Test1 />,
+      content: <Test1 />,
     },
     {
       key: '2',
@@ -32,18 +35,18 @@ const Jlpt_category = () => {
   ];
 
   const onChange = (key) => {
-    console.log(key);
+    console.log(`Selected tab key: ${key}`);
   };
 
   return (
     <Tabs defaultActiveKey="1" onChange={onChange}>
       {items.map(item => (
-        <Tabs.TabPane key={item.key} tab={item.tab}>
+        <TabPane key={item.key} tab={item.tab}>
           {item.content}
-        </Tabs.TabPane>
+        </TabPane>
       ))}
     </Tabs>
   );
 };
 
-export default Jlpt_category;
+export default JlptCategory;
